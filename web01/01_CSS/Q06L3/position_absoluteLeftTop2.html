@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+
+        <style>
+            .box {
+                width: 100px;
+                height: 100px;
+                position: absolute;
+            }
+            /* position:absolute 위치 절대지정 */
+            .box:nth-child(1) {
+                background-color: red;
+                z-index: 3;
+                left: 0;
+                top: 0;
+            }
+            .box:nth-child(2) {
+                background-color: green;
+                z-index: 2;
+                left: 50px;
+                top: 50px;
+            }
+            .box:nth-child(3) {
+                background-color: blue;
+                z-index: 1;
+                left: 90px;
+                top: 90px;
+            }
+            /* z-index는 정수값만 가능하다. */
+            /* z-index 이전에 다른 포지션이 있어야 쌓인다. static제외하고 */
+        </style>
+    </head>
+    <body>
+        <h1>Lorem ipsum dolor sit.</h1>
+        <div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+        <h1>Lorem ipsum dolor sit.</h1>
+    </body>
+</html>

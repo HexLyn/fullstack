@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Document</title>
+        <script>
+            function callmultiple(callback) {
+                for (let i = 0; i < 10; i++) {
+                    callback();
+                    alert(i + 1);
+                }
+            }
+            //callmultiple에 function()을 바로 넣음.
+            callmultiple(function () {
+                alert('함수호출');
+            });
+        </script>
+    </head>
+    <body></body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>배열 생성과 배열 출력</title>
+        <script>
+            let mdata = ['10', '김', 10, 40 * 10, 10 ** 2];
+
+            //해당 배열 데이터 교체
+            mdata[0] = '골';
+
+            //배열 길이 체크
+            let datalen = mdata.length;
+            console.log(mdata.length);
+
+            // array_index 노가다
+            // alert(datalen);
+            // alert(mdata[0]);
+            // alert(mdata[1]);
+            // alert(mdata[2]);
+            // alert(mdata[3]);
+            // alert(mdata[4]);
+
+            // loop_while while문
+            let i = 0;
+            while (i < 5) {
+                // alert(mdata[i]);
+
+                alert(`${i + 1}번째 출력: ${mdata[i]}`);
+                i++;
+
+                //빽틱이먼디
+            }
+
+            // loop_forsum for문
+            // for (i = 0; i < 5; i++) {
+            //     alert(mdata[i]);
+            // }
+        </script>
+    </head>
+    <body></body>
+</html>

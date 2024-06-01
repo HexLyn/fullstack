@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Document</title>
+        <script>
+            window.onload = function () {
+                let output = '';
+                for (let i = 0; i < 256; i++) {
+                    output += '<div></div>';
+                }
+                // <div></div> 태그를 256번 더했다.
+
+                document.body.innerHTML = output;
+                // textContent로 하면 텍스트 자체가 입력되어 원하는 결과가 아니다.
+
+                let divs = document.querySelectorAll('div');
+                //div에 해당하는 모든 것들을 선택.
+
+                // 새로 let i =0으로 정의했기에 다시 i를 써도 괜찮다.
+                //앞에서 div 256개를 지정하여 divs.length가 가능해짐.
+                for (let i = 0; i < divs.length; i++) {
+                    let div = divs[i];
+
+                    //div의 기본 높이 너비는 0이므로 지정해준다.
+                    div.style.height = '2px';
+
+                    // div.style.background =
+                    //     'rgb(' +
+                    //     i +
+                    //     ',' +
+                    //     i +
+                    //     ',' +
+                    //     i +
+                    //     ')';
+                    // div.style.background = 'rgb('+i+','+i+','+i+')';
+
+                    // ``으로 묶고 ${}로 지정하는 형식.
+                    div.style.background = `rgb(
+                        ${i},${i},${i}
+                    )`;
+                }
+            };
+        </script>
+    </head>
+    <body></body>
+</html>

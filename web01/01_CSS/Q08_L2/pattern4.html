@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="user-scalable=no,initial-scale=1,maximum-scale=1"
+        />
+        <title>Document</title>
+        <style>
+            /* 메뉴 오른쪽 메뉴 아래 */
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                width: 960px;
+                margin: 0 auto;
+                overflow: hidden;
+            }
+
+            .menu {
+                width: 260px;
+                float: right;
+            }
+            #section {
+                width: 700px;
+                float: left;
+            }
+            li {
+                list-style: none;
+            }
+            @media screen and (max-width: 767px) {
+                body {
+                    width: auto;
+                }
+                #menu {
+                    width: auto;
+                    float: none;
+                }
+                #section {
+                    width: auto;
+                    float: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="section">
+            <h1>Lorem, ipsum.</h1>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur
+                adipisicing elit. Labore officiis magnam
+                accusamus quos rerum, dolores recusandae
+                pariatur assumenda velit. Libero corporis
+                unde maxime accusamus optio, minus molestias
+                facere ratione nihil. Lorem ipsum dolor sit
+                amet consectetur adipisicing elit.
+                Consequuntur ipsam optio sapiente iste at
+                sunt eaque quas ad voluptas aspernatur nobis
+                exercitationem cupiditate tenetur rerum id,
+                quis ullam culpa. Ullam. Lorem ipsum dolor
+                sit amet, consectetur adipisicing elit. Ab
+                accusamus deserunt, adipisci nobis, sapiente
+                voluptatum magnam qui, nostrum doloribus
+                molestias ad est nam rem officiis possimus
+                vel? Necessitatibus, voluptas? Vel? Lorem
+                ipsum dolor sit amet consectetur adipisicing
+                elit. Ex magnam ratione et. Alias blanditiis
+                obcaecati tempore molestias ipsa delectus
+                nobis, facilis id veritatis eum deserunt
+                odit perspiciatis, accusamus, beatae
+                ducimus!
+            </p>
+        </div>
+        <div class="menu">
+            <ul>
+                <li>메뉴1</li>
+                <li>메뉴2</li>
+                <li>메뉴3</li>
+            </ul>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            /* 
+            * {
+                margin: 0;
+                padding: 0;
+            }
+             */
+            body {
+                background-color: red;
+                /* position: relative; */
+            }
+            #container {
+                background-color: orange;
+                width: 400px;
+                height: 200px;
+
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                /* viewport 기준으로 50% 50% 위치에서 그려짐 */
+                margin-left: -200px;
+                margin-top: -100px;
+                /* 이동시켜 중앙으로 맞춤 */
+
+                /* margin-left: calc(500px/-2); */
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <h1>요소의 중앙 배치</h1>
+        </div>
+    </body>
+</html>

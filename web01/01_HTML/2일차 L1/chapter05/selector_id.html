@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            #head1 {
+                background-color: red;
+                width: 800px;
+                margin: 0 auto;
+            }
+            /* width 입력시 w만 쳐도 자동완성됨 */
+            /* 'margin: 0 auto' : 여백없이 자동 정렬되도록 한다. */
+            #aside1 {
+                background-color: blue;
+                width: 200px;
+                float: left;
+            }
+            #content1 {
+                background-color: green;
+                width: 600px;
+                float: left;
+            }
+            #wrap {
+                width: 800px;
+                margin: 0 auto;
+                overflow: hidden;
+            }
+            /* 스타일에서 id 선택자는 아이디 앞에 #을 붙인다. */
+        </style>
+    </head>
+    <body>
+        <div id="head1">
+            <h1>#header 태그</h1>
+        </div>
+
+        <!-- wrap 부분 -->
+        <div id="wrap">
+            <div id="aside1">
+                <h1 id="aside1">#aside 태그</h1>
+            </div>
+            <div id="content1">
+                <h1 id="content1">#content 태그</h1>
+            </div>
+        </div>
+        <!-- wrap부분 -->
+    </body>
+</html>

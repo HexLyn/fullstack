@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Document</title>
+        <style>
+            .flex-container {
+                display: flex;
+                align-items: stretch;
+                background-color: #fff;
+                width: 800px;
+                height: 200px;
+            }
+
+            .flex-item {
+                background-color: dodgerblue;
+                color: white;
+                width: 100px;
+                margin: 10px;
+                text-align: center;
+                line-height: 75px;
+                font-size: 30px;
+            }
+            .flex-item:nth-child(2) {
+                flex-shrink: 0;
+            }
+            /* flex-shrink의 기본값은 1 */
+        </style>
+    </head>
+    <body>
+        <div class="flex-container">
+            <div class="flex-item">1</div>
+            <div class="flex-item">2</div>
+            <div class="flex-item">3</div>
+            <div class="flex-item">4</div>
+            <div class="flex-item">5</div>
+        </div>
+    </body>
+</html>

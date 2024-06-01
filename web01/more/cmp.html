@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Document</title>
+        <script>
+            if (x > 10 && x < 20) {
+                alert(x);
+            }
+
+            let i = 1;
+            while (i <= 10) {
+                if (i % 5 == 0) {
+                    alert(i);
+                }
+                i++;
+            }
+
+            for (let i = 10; i >= 0; i -= 3) {
+                alert(i);
+            }
+
+            let cm;
+            let feet;
+            let inch;
+
+            function converse(cm) {
+                feet = cm * 2.54;
+                inch = cm * 12;
+                print(
+                    `${cm} cm은 ${inch}인치, ${feet} 피트 입니다.`
+                );
+            }
+        </script>
+    </head>
+    <body></body>
+</html>

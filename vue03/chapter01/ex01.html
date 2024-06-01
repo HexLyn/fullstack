@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app">
+            <h2>{{message}}</h2>
+        </div>
+
+        <!-- content delivery network, cdn -->
+        <script src="http://unpkg.com/vue"></script>
+        <script>
+            let model = { message: 'Hello Vue3!' };
+            let vm = Vue.createApp({
+                name: 'APP',
+                data() {
+                    return model;
+                },
+                // return model에서 model을 후처리하며 proxy객체로 변환.
+            }).mount('#app');
+
+            // 뷰의 앱을 #app에 연결한다. 가상dom으로 연결.
+        </script>
+    </body>
+</html>

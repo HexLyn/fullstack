@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>해결방법2, 이벤트 활용하기</title>
+        <script>
+            // onload: 윈도우 로드가 다 되면 이벤트를 실행하겠다.
+            window.onload = function () {
+                document.querySelector(
+                    'h1'
+                ).style.backgroundColor = 'red';
+                document.querySelector('h2').style.color =
+                    'red';
+            };
+        </script>
+    </head>
+    <body>
+        <h1>야호</h1>
+        <h2>이야호</h2>
+    </body>
+</html>

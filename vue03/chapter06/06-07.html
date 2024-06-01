@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Document</title>
+    </head>
+    <body>
+        <style>
+            .buttonColor {
+                background-color: aqua;
+                color: black;
+            }
+            .buttonLayout {
+                text-align: center;
+                width: 120px;
+            }
+            .staticBorder {
+                border: blue dashed 1px;
+            }
+        </style>
+        <div id="app">
+            <input type="checkbox" v-model="isMyLayout" />
+            레이아웃 적용 여부<br />
+            <!-- 체크박스가 하나의 값과 연결돼 있으므로 체크 할 요소가 하나란 뜻. -->
+            <!-- label로 묶어놓지 않아서 글자를 선택한다고 체크가 되진 않는다. -->
+            <button
+                class="staticBorder"
+                :class="[myColor, isMyLayout? myLayout:'']"
+            >
+                <!-- myColor클래스는 언제나 적용, myLayout은 isMyLayOut의 값에 따라 결정. -->
+                버튼
+            </button>
+        </div>
+        <script src="https://unpkg.com/vue"></script>
+        <script>
+            let vm = Vue.createApp({
+                name: 'App',
+                data() {
+                    return {
+                        myColor: 'buttonColor',
+                        myLayout: 'buttonLayout',
+                        isMyLayout: false,
+                    };
+                },
+            }).mount('#app');
+        </script>
+    </body>
+</html>

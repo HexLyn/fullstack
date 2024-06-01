@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>textContent와 innerHTML의 차이</title>
+        <script>
+            //이벤트 연결
+            window.onload = function () {
+                // 변수 선언, 초기화
+                // 상수로 만들면 고정돼버림.
+                let output = '';
+                for (let i = 0; i < 10; i++) {
+                    // output += '<h1>Header -' + i + '</h>';
+                    output += `<h1>Header - ${i} </h1>`;
+                    // ``로 묶는게 더 가독성이 좋음.
+                }
+
+                //글자만 있으면 textContent, innerHTML은 차이가 거의 없다.
+                // 태그가 들어가면서 둘 사이 차이가 생김.
+
+                // textContent: 객체 내부 글자 변경.
+                document.body.textContent = output;
+
+                // innerHTML: 객체 내부의 요소 변경.
+                document.body.innerHTML = output;
+            };
+        </script>
+    </head>
+    <body></body>
+</html>

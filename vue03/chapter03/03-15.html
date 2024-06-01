@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Document</title>
+    </head>
+    <!-- v-for에서 index 얻기 -->
+    <body>
+        <style>
+            /* #list는 아이디가 list인 것. */
+            #list {
+                width: 600px;
+                border: 1px solid;
+                border-collapse: collapse;
+            }
+            /* 아이디 list의 후손 td와 th */
+            #list td,
+            #list th {
+                border: 1px solid;
+                text-align: center;
+            }
+            #list > thead > tr {
+                color: yellow;
+                background-color: purple;
+            }
+            .divider {
+                height: 2px;
+                background-color: gray;
+            }
+        </style>
+
+        <!-- ctrl+alt+방향키로 한번에  -->
+        <div id="app">
+            <table id="list">
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>이름</th>
+                        <th>전화번호</th>
+                    </tr>
+                </thead>
+                <tbody id="contacts">
+                    <!-- template는 실제 dom요소에 추가되지는 않는다. -->
+                    <template
+                        v-for="(contact, index) in contacts"
+                        :key="contact.no"
+                    >
+                        <tr>
+                            <td>{{contact.no}}</td>
+                            <td>{{contact.name}}</td>
+                            <td>{{contact.tel}}</td>
+                        </tr>
+                        <tr
+                            class="divider"
+                            v-if="index % 4 ===3"
+                        >
+                            <td colspan="3"></td>
+                            <!-- colspan으로 세 칸 다 회색줄이 쳐진다. -->
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        <script>
+            let vm = Vue.createApp({
+                name: 'App',
+                data() {
+                    return {
+                        pageno: 1,
+                        pageSize: 4,
+                        totalcount: 100,
+                        // 이것들 효과는 있?
+                        contacts: [
+                            {
+                                no: 1011,
+                                name: 'RM',
+                                tel: '010-3456-8299',
+                            },
+                            {
+                                no: 1012,
+                                name: 'R2M',
+                                tel: '010-3336-8299',
+                            },
+                            {
+                                no: 1013,
+                                name: 'RM3',
+                                tel: '010-3226-8299',
+                            },
+                            {
+                                no: 1015,
+                                name: 'R4M',
+                                tel: '010-3116-8299',
+                            },
+                            {
+                                no: 10151,
+                                name: 'R23M',
+                                tel: '010-3236-8299',
+                            },
+                            {
+                                no: 10162,
+                                name: 'R21M',
+                                tel: '030-3336-8299',
+                            },
+                            {
+                                no: 10313,
+                                name: 'RM23',
+                                tel: '020-3226-8299',
+                            },
+                        ],
+                    };
+                },
+            }).mount('#app');
+        </script>
+    </body>
+</html>

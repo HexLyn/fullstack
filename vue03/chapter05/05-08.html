@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Document</title>
+    </head>
+    <body>
+        <style>
+            #outer {
+                width: 200px;
+                height: 200px;
+                border: solid black 2px;
+                background-color: aqua;
+                position: absolute;
+                top: 100px;
+                left: 50px;
+                padding: 10px;
+            }
+            #inner {
+                width: 100px;
+                height: 100px;
+                border: solid 2px black;
+                background-color: yellow;
+            }
+        </style>
+        <div id="app">
+            <div id="outer" @click="outerClick">
+                <!-- inner클릭에만 stop을 넣어도 막히긴 하는데? -->
+                <div
+                    id="inner"
+                    @click.stop="innerClick"
+                ></div>
+                <!-- stopPropagation 대신 .stop을 
+                    이용해 버블링을 막았다. -->
+            </div>
+        </div>
+        <script src="https://unpkg.com/vue"></script>
+        <script>
+            let vm = Vue.createApp({
+                name: 'App',
+                data() {
+                    return {};
+                },
+                methods: {
+                    outerClick(e) {
+                        console.log('### Outer Click');
+                        console.log(
+                            'Event Phase: ',
+                            e.eventPhase
+                        );
+                        console.log(
+                            'Current Target: ',
+                            e.currentTarget
+                        );
+                        console.log('Target:', e.target);
+                    },
+                    innerClick(e) {
+                        console.log('### Inner Click');
+                        console.log(
+                            'Event Phase: ',
+                            e.eventPhase
+                        );
+                        console.log(
+                            'Current Target: ',
+                            e.currentTarget
+                        );
+                        console.log('Target:', e.target);
+                    },
+                },
+            }).mount('#app');
+        </script>
+    </body>
+</html>

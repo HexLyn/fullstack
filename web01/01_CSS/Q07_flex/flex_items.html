@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Document</title>
+        <style>
+            .flex-container {
+                background-color: dodgerblue;
+                display: flex;
+                height: 200px;
+                align-items: flex-start;
+                /* align-items: center; */
+                /* align-items: flex-end; */
+                /* align-items: stretch; */
+                /* align-items: baseline; */
+                /* background-color: dodgerblue; */
+            }
+            /* justify-contents 기본적으로 수평정렬 */
+            /* align-items 기본적으로 수직정렬, 한 줄을 정렬한다. */
+            /* align-contents 기본적으로 수직정렬, 여러줄을 정렬 */
+            .flex-container > div {
+                background-color: #fff;
+                width: 100px;
+                margin: 10px;
+                text-align: center;
+                line-height: 75px;
+                font-size: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-container">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+        </div>
+    </body>
+</html>

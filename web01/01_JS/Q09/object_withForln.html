@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>객체 속성 순회</title>
+        <script>
+            //객체 {}
+            //제품명, 유형과 같은 키값으로 접근한다.
+            let product = {
+                제품명: '7D 건망',
+                유형: '당절임',
+                성분: '망고, 설탕, 메타뭐, 치자',
+                원산지: '필리핀',
+            };
+            //특수문자가 들어가면 ''로 묶는게 좋다. '제품명-1'
+
+            //7D 건망 출력
+            // alert(product['제품명']);
+            // alert(product.제품명);
+
+            //전체 객체 순차 출력
+            for (let i in product) {
+                // alert(product[i]);
+                alert(`${i} : ${product[i]}`);
+
+                //  탭키 위에 있는 ~, 일반 따옴표랑 다르다.
+            }
+        </script>
+    </head>
+    <body></body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app">
+            <!-- input에 텍스트를 입력할 때마다 changeName호출 -->
+            <input
+                type="text"
+                :value="name"
+                @input="changeName"
+            /><br />
+            이름 : <span>{{name}}</span>
+            <!-- 수평으로 넣어주기 위해 span태그 -->
+        </div>
+        <script
+            type="text/javascript"
+            src="https://unpkg.com/vue"
+        ></script>
+        <script type="text/javascript">
+            var vm = Vue.createApp({
+                name: 'App',
+                data() {
+                    return { name: '' };
+                },
+                methods: {
+                    changeName(e) {
+                        this.name = e.target.value;
+                    },
+                    // e는 event.
+                    // e.target.value 현재 이벤트가 발생한 위치의
+                    // 값.
+                },
+            }).mount('#app');
+        </script>
+    </body>
+</html>

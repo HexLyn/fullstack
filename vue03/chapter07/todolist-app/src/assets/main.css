@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+.title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20pt;
+}
+
+.todo-done {
+    text-decoration: line-through;
+}
+.container {
+    padding: 10px;
+}
+/* 굳이 상하좌우 다 같은데 */
+.panel-borderless {
+    border: 0;
+    box-shadow: none;
+}
+.pointer {
+    cursor: pointer;
+}
+/* cursor:pointer = 마우스 올리면 손모양으로 바뀌는 그거 */

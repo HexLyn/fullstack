@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>tabledescchild</title>
+        <style>
+            table > tbody > tr > th {
+                color: red;
+            }
+            /* th {
+                color: red;
+            } */
+        </style>
+    </head>
+    <!-- table 에서 thead tbody는 자동생성됨
+         즉, table 자식은 tbody이다. tr, th는 후손. -->
+    <body>
+        <table border="1">
+            <tr>
+                <th>이름</th>
+                <th>지역</th>
+            </tr>
+            <!-- 볼드체로 되어있으니 th로 생성 -->
+            <tr>
+                <td>윤인성</td>
+                <td>서울~~~~</td>
+            </tr>
+        </table>
+    </body>
+</html>

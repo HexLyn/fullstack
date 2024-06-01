@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Document</title>
+        <script>
+            let Sdate = new Date();
+            let smon = Sdate.getMonth() + 1;
+
+            if (smon >= 3 && smon <= 5) {
+                alert('봄입니다.');
+            } else if (smon >= 6 && smon <= 8) {
+                alert('여름입니다.');
+            } else if (smon >= 9 && smon <= 10) {
+                alert('가을입니다.');
+            } else {
+                alert('겨울입니다.');
+            }
+        </script>
+    </head>
+    <body></body>
+</html>

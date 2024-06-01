@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            #header > h1 {
+                color: red;
+            }
+            #section > h1 {
+                color: orange;
+            }
+            /* 하위 선택자, 후손 선택자 */
+        </style>
+    </head>
+    <body>
+        <div id="header">
+            <h1 class="title">Lorem ipsum</h1>
+            <div id="nav">
+                <h1>Navigation</h1>
+            </div>
+        </div>
+        <!-- title은 header의 후손이며 자손, nav는 후손이다. -->
+        <div id="section">
+            <h1 class="title">Lorem ipsum</h1>
+            <p>Lorem ipsum dolor sitamet , consectetur adipiscing elit.</p>
+        </div>
+    </body>
+</html>

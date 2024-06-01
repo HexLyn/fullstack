@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app">
+            <input type="text" v-model="name" />
+            <br />
+            입력한 값: <span>{{name}}</span>
+        </div>
+        <!-- v-model 디렉터리는 양방향 디렉터리를 지원한다
+속성값->화면변경, 화면->속성값 변경 둘 다 가능 -->
+        <script src="https://unpkg.com/vue"></script>
+        <script>
+            let vm = Vue.createApp({
+                name: 'App',
+                data() {
+                    return { name: '' };
+                },
+            }).mount('#app');
+        </script>
+    </body>
+</html>

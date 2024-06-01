@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Document</title>
+        <style>
+            .flex-container {
+                background-color: dodgerblue;
+                display: flex;
+                flex-direction: row;
+                /* flex-direction: row-reverse; */
+                /* flex-direction: column; */
+                /* flex-direction: column-reverse; */
+            }
+            /* display: flex는 원래 수평정렬하기 위해 사용, 굳이 col? */
+            .flex-container > div {
+                width: 100px;
+                margin: 10px;
+                text-align: center;
+                background-color: #fff;
+                font-size: 30px;
+                line-height: 75px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-container">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+        </div>
+    </body>
+</html>

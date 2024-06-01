@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+
+        <style>
+            .box {
+                width: 100px;
+                height: 100px;
+                position: absolute;
+            }
+            /* position:absolute 위치 절대지정
+            position의 기본값은 static  */
+            /* position: relative 자기자신이 기준점. */
+            /* absolute는 부모가 기준값. */
+            .box:nth-child(1) {
+                background-color: red;
+
+                left: 10px;
+                top: 10px;
+            }
+            /* viewport=브라우저 화면, 부모를 정하지 않으면 viewport를 부모로 봄 */
+            /* left,top 기준점에서 이동 */
+            .box:nth-child(2) {
+                background-color: green;
+
+                left: 50px;
+                top: 50px;
+            }
+            .box:nth-child(3) {
+                background-color: blue;
+
+                left: 90px;
+                top: 90px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </body>
+</html>

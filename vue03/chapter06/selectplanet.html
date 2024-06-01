@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app">
+            <!-- v-model인 pSelect
+            메뉴 이름들 일일히 정하지 않고 v-for로 배열을 돌렸다.
+            =>스크립트 영역에 데이터 기본값들 명시 해 놓음. -->
+            <select v-model="pSelect">
+                <option disabled value="">
+                    행성을 선택하세요
+                </option>
+                <option
+                    v-for="planet in planets"
+                    :value="planet"
+                >
+                    {{planet.pName}}
+                </option>
+            </select>
+
+            <div v-if="pSelect">
+                <h2>{{pSelect.pName}}</h2>
+                <p>{{pSelect.pMass}}</p>
+                <p>{{pSelect.pSize}}</p>
+                <p>{{pSelect.pChar}}</p>
+            </div>
+        </div>
+    </body>
+    <script
+        type="text/javascript"
+        src="https://unpkg.com/vue"
+    ></script>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    pSelect: null,
+                    planets: [
+                        {
+                            pName: '지구',
+                            pMass: '5.972 * 10^24 kg',
+                            pSize: '6,371km',
+                            pChar: '생명체가 존재하는 유일한 행성',
+                        },
+                        {
+                            pName: '화성',
+                            pMass: '5.972 * 10^24 kg',
+                            pSize: '6,371km',
+                            pChar: '생명체가 존재하는 유일한 행성',
+                        },
+                        {
+                            pName: '목성',
+                            pMass: '5.972 * 10^24 kg',
+                            pSize: '6,371km',
+                            pChar: '생명체가 존재하는 유일한 행성',
+                        },
+                    ],
+                };
+            },
+        }).mount('#app');
+    </script>
+</html>

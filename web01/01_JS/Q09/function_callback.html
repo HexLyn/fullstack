@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>callback함수 만들기</title>
+        <script>
+            //이름없는 함수를 콜백으로 만들어 줌
+            let fun = function () {
+                alert('함수호출');
+            };
+
+            //이름 있는 함수
+            function callmultiple(callback) {
+                for (let i = 0; i < 10; i++) {
+                    callback();
+                    alert(i + 1);
+
+                    // callback() + alert(i + 1);
+                }
+            }
+            // 함수 안에 함수
+            //callback으로 들어갈 때에는 함수 fun 뒤에 ()
+            //괄호 안붙임, 매개변수로 넘겨지기 때문에 불필요
+            callmultiple(fun);
+        </script>
+    </head>
+    <body></body>
+</html>

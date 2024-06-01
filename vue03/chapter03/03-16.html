@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app">
+            <table id="list">
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>이름</th>
+                        <th>전화번호</th>
+                    </tr>
+                </thead>
+                <tbody id="contacts">
+                    <tr
+                        v-for="(contact, index) in contacts"
+                        :key="contact.no"
+                    >
+                        <td>{{index+1}}</td>
+                        <td>{{contact.name}}</td>
+                        <td>{{contact.tel}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        <script>
+            let vm = Vue.createApp({
+                name: 'App',
+                data() {
+                    return {
+                        pageno: 1,
+                        pageSize: 4,
+                        totalcount: 100,
+                        // 이것들 효과는 있?
+                        contacts: [
+                            {
+                                no: 1011,
+                                name: 'RM',
+                                tel: '010-3456-8299',
+                            },
+                            {
+                                no: 1012,
+                                name: 'R2M',
+                                tel: '010-3336-8299',
+                            },
+                            {
+                                no: 1013,
+                                name: 'RM3',
+                                tel: '010-3226-8299',
+                            },
+                            {
+                                no: 1015,
+                                name: 'R4M',
+                                tel: '010-3116-8299',
+                            },
+                            {
+                                no: 10151,
+                                name: 'R23M',
+                                tel: '010-3236-8299',
+                            },
+                            {
+                                no: 10162,
+                                name: 'R21M',
+                                tel: '030-3336-8299',
+                            },
+                            {
+                                no: 10313,
+                                name: 'RM23',
+                                tel: '020-3226-8299',
+                            },
+                        ],
+                    };
+                },
+            }).mount('#app');
+        </script>
+    </body>
+</html>

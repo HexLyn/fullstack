@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+
+        <style>
+            #box {
+                display: inline-block;
+                background-color: red;
+                width: 100px;
+                height: 50px;
+                margin: 10px;
+            }
+        </style>
+        <!-- display: inline-block으로 div 블록태그가 바뀜 -->
+        <!-- 스타일 설정을 통해 너비, 높이 설정이 되는 인라인 태그 -->
+    </head>
+    <body>
+        <p>의미 없는 더미 객체</p>
+        <!-- p는 블럭이지만 위아래로 여백이 생긴다. -->
+        <span>더미 객체</span>
+        <!-- 인라인, 원래는 너비 높이 설정 불가. -->
+        <div id="box">대상 객체</div>
+        <!-- 블럭 -->
+        <span>더미 객체</span>
+        <p>의미 없는 더미 객체</p>
+    </body>
+</html>

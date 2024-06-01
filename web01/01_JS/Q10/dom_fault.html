@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>script 실행 순서에 따른 오류</title>
+        <!-- script태그가 위에 있어 html요소를 찾지 못했다. -->
+        <script>
+            document.querySelector(
+                'h1'
+            ).style.backgroundColor = 'red';
+            document.querySelector(
+                'h2'
+            ).style.backgroundColor = 'red';
+        </script>
+        <!-- querySelector()에서 선택자를 붙여야 함.  -->
+        <!-- 태그는 없고 id는 #, 클래스는 . -->
+    </head>
+    <body>
+        <h1>Process -1</h1>
+        <h2>Process -2</h2>
+    </body>
+</html>
