@@ -1,0 +1,6 @@
+  제대로 실행하려면 json데이터를 읽을 서버 그리고,
+ npm run dev로 프런트를 열어야 한다. 총 2개의 서버
+
+ 먼저, cd로 해당 폴더 연 뒤,
+ npx json-server dbtest.json 을 입력해 dbtest.json을 읽을 서버를 열고
+ npm run dev로 프런트를 연다. 이러면 올바르게 작동함.

@@ -10,6 +10,8 @@ import Videos from '@/pages/Videos.vue';
 
 import MemberInfo from '@/pages/MemberInfo.vue';
 
+import NotFound from '@/pages/NotFound.vue';
+
 const router = createRouter({
     history: createWebHistory(),
     routes: [
@@ -32,6 +34,11 @@ const router = createRouter({
         {
             path: '/members/:id',
             component: MemberInfo,
+        },
+        {
+            path: '/:paths(.*)*',
+            name: 'NotFound',
+            component: NotFound,
         },
     ],
 });
