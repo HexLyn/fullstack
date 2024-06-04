@@ -60,6 +60,6 @@ const addTodoHandler = () => {
         return;
     }
     addTodo({ ...todoItem });
-    router.path('/todos');
+    router.push('/todos');
 };
 </script>
