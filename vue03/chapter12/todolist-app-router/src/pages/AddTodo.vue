@@ -59,7 +59,8 @@ const addTodoHandler = () => {
         alert('할 일이 없냐?');
         return;
     }
-    addTodo({ ...todoItem });
-    router.push('/todos');
+    addTodo({ ...todoItem }, () => {
+        router.push('/todos');
+    });
 };
 </script>

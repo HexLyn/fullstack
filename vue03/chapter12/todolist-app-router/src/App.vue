@@ -10,81 +10,113 @@
 // script setup 키워드 사용시 components 따로 등록할 필요 없음
 import { reactive, computed, provide } from 'vue';
 import Header from '@/components/Header.vue';
+import axios from 'axios';
 
-const states = reactive({
-    todoList: [
-        {
-            id: 1,
-            todo: 'ES6학습',
-            desc: '설명1',
-            done: false,
-        },
-        {
-            id: 2,
-            todo: 'React학습',
-            desc: '설명2',
-            done: false,
-        },
-        {
-            id: 3,
-            todo: 'ContextAPI 학습',
-            desc: '설명3',
-            done: true,
-        },
-        {
-            id: 4,
-            todo: '야구경기 관람',
-            desc: '설명4',
-            done: false,
-        },
-    ],
-});
+const BASEURI = '/api/todos';
+const states = reactive({ todoList: [] });
+
+// TodoList 목록 조회
+const fetchTodoList = async () => {
+    try {
+        const response = await axios.get(BASEURI);
+        if (response.status === 200) {
+            states.todoList = response.data;
+        } else {
+            alert('데이터 조회 실패');
+        }
+    } catch (error) {
+        alert('에러발생 :' + error);
+    }
+};
 
 // todo를 추가하는 메소드, todo와 desc가 들어있는 객체를 구조 분해 할당으로 받음
-const addTodo = ({ todo, desc }) => {
+const addTodo = async ({ todo, desc }, successCallback) => {
     // todoList의 맨 뒤에 새로운 객체 추가
-    states.todoList.push({
-        id: new Date().getTime(),
-        todo,
-        desc,
-        done: false,
-    });
+    try {
+        const payload = { todo, desc };
+        const response = await axios.post(BASEURI, payload);
+
+        if (response.status === 201) {
+            states.todoList.push({
+                ...response.data,
+                done: false,
+            });
+            successCallback();
+        } else {
+            alert('Todo 추가 실패');
+        }
+    } catch (error) {
+        alert('에러발생 :' + error);
+    }
 };
 
 // todo를 수정하는 메소드, 해당 id의 todo를 찾아서 todo, desc, done 값을 업데이트
-const updateTodo = ({ id, todo, desc, done }) => {
+const updateTodo = async (
+    { id, todo, desc, done },
+    successCallback
+) => {
     // 받아온 id로 해당하는 todo를 찾은 후 해당 todo의 index 반환
-    let index = states.todoList.findIndex(
-        (todo) => todo.id === id
-    );
-    // 찾아온 todo의 값을 그대로 펼친 후 todo, desc, done 값을 업데이트해서 다시 대입
-    states.todoList[index] = {
-        ...states.todoList[index],
-        todo,
-        desc,
-        done,
-    };
+    try {
+        const payload = { id, todo, desc, done };
+        // put을 이용해 업데이트를 수행했다.
+        const response = await axios.put(
+            BASEURI + `/${id}`,
+            payload
+        );
+        if (response.status === 200) {
+            let index = states.todoList.findIndex(
+                (todo) => todo.id === id
+            );
+            states.todoList[index] = payload;
+            successCallback();
+        } else {
+            alert('Todo 변경 실패');
+        }
+    } catch (error) {
+        alert('에러발생 :' + error);
+    }
 };
 
 // todo를 삭제하는 메소드, 해당 id의 todo를 찾아서 삭제
-const deleteTodo = (id) => {
-    // 받아온 id로 해당하는 todo를 찾은 후 해당 todo의 index 반환
-    let index = states.todoList.findIndex(
-        (todo) => todo.id === id
-    );
-    // todolist에서 해당 index에 있는 객체 한개를 삭제함
-    states.todoList.splice(index, 1);
+const deleteTodo = async (id) => {
+    try {
+        const response = await axios.delete(
+            BASEURI + `/${id}`
+        );
+        console.log(response.status, response.data);
+        if (response.status === 200) {
+            let index = states.todoList.findIndex(
+                (todo) => todo.id === id
+            );
+            states.todoList.splice(index, 1);
+        } else {
+            alert('Todo 삭제 실패');
+        }
+    } catch (error) {
+        alert('에러 발생: ' + error);
+    }
 };
 
-// todo의 done을 true -> false, false -> true로 변경해주는 메소드
-const toggleDone = (id) => {
-    // 받아온 id로 해당하는 todo를 찾은 후 해당 todo의 index 반환
-    let index = states.todoList.findIndex(
-        (todo) => todo.id === id
-    );
-    // 해당 todo의 done 값을 반대로 바꿔줌
-    states.todoList[index].done =
-        !states.todoList[index].done;
+//완료여부
+const toggleDone = async (id) => {
+    try {
+        let todo = states.todoList.find(
+            (todo) => todo.id === id
+        );
+        let payload = { ...todo, done: !todo.done };
+        // done을 업데이트 해주니 put을 사용한다.
+        const response = await axios.put(
+            BASEURI + `/${id}`,
+            payload
+        );
+        if (response.status === 200) {
+            todo.done = payload.done;
+        } else {
+            alert('Todo 완료 변경 실패');
+        }
+    } catch (error) {
+        alert('에러 발생: ' + error);
+    }
 };
 
 // provide로 하위 컴포넌트에서 사용 가능하도록 제공해줌
@@ -98,5 +130,8 @@ provide('actions', {
     deleteTodo,
     toggleDone,
     updateTodo,
+    fetchTodoList,
 });
+
+fetchTodoList();
 </script>

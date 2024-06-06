@@ -61,7 +61,7 @@ const router = useRouter();
 const currentRoute = useRoute();
 
 const matchedTodoItem = todoList.value.find(
-    (item) => item.id === parseInt(currentRoute.params.id)
+    (item) => item.id === currentRoute.params.id
 );
 if (!matchedTodoItem) {
     router.push('./todos ');
@@ -74,7 +74,8 @@ const updateTodoHandler = () => {
         alert('할일은 반드시 입력해야 합니다');
         return;
     }
-    updateTodo({ ...todoItem });
-    router.push('/todos');
+    updateTodo({ ...todoItem }, () => {
+        router.push('/todos');
+    });
 };
 </script>
