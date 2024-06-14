@@ -1,16 +1,15 @@
 {
   "todos": [
     {
-      "id": "1",
-      "todo": "ES6학습23",
-      "desc": "설명1",
-      "done": false
-    },
-    {
       "id": "a522",
       "todo": "ㅇㄹ",
       "desc": "ㅇㄹㅇ",
-      "done": false
+      "done": true
+    },
+    {
+      "id": "68f5",
+      "todo": "ㅇㅅㅇ",
+      "desc": "ㅇㅅㅇ"
     }
   ]
 }
