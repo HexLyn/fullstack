@@ -1,17 +1,17 @@
-function solution(my_string) {
-    let solve = [];
-    let answer = '';
+// function solution(my_string) {
+//     let solve = [];
+//     let answer = '';
 
-    solve = [...my_string];
+//     solve = [...my_string];
 
-    for(let i = 0; i< solve.length; i++) {
-       if( solve[i] == 'a' || solve[i] =='e' || solve[i] =='i' || solve[i] =='o' || solve[i] =='u') {
-        solve[i] = "";
-       }
-    }
-    answer = solve.join("")
-    return answer
-}
+//     for(let i = 0; i< solve.length; i++) {
+//        if( solve[i] == 'a' || solve[i] =='e' || solve[i] =='i' || solve[i] =='o' || solve[i] =='u') {
+//         solve[i] = "";
+//        }
+//     }
+//     answer = solve.join("")
+//     return answer
+// }
 
     
 
@@ -35,6 +35,6 @@ function solution(my_string) {
 
 
 // 정규표현식
-// function solution(my_string) {
-//     return my_string.replace(/[aeiou]/g, '');
-// }
+function solution(my_string) {
+    return my_string.replace(/[aeiou]/g, '');
+}
