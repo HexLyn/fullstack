@@ -103,6 +103,7 @@ public class SampleController {
     }
 
     @GetMapping("/ex07")
+    // ResponseBody 어노테이션은 반환된 객체가 json형태로 변환되어 보여지도록 한다.
     public @ResponseBody SampleDTO ex07() {
         log.info("ex07..............");
         SampleDTO dto = new SampleDTO();
