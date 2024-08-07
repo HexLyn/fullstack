@@ -113,6 +113,7 @@ public class SampleController {
         return dto;
     }
 
+    // responseentity: json형태의 body+응답 해더
     @GetMapping("/ex08")
     public ResponseEntity<String> ex08() {
         log.info("ex08..............");
@@ -121,6 +122,8 @@ public class SampleController {
 
         HttpHeaders header = new HttpHeaders();
         header.add("Content-Type", "application/json;charset=UTF-8");
+        //  HttpHeaders 객체 생성 후 content-type 해더 설정
+        // responseEntity
         return new ResponseEntity<>(msg,header, HttpStatus.OK);
     }
 
@@ -133,9 +136,10 @@ public class SampleController {
     @PostMapping("/exUploadPost")
     public void exUploadPost(ArrayList<MultipartFile> files) {
         for(MultipartFile file : files) {
+            // multipartfile 하나가 업로드한 파일 하나에 대응된다.
             log.info("---------------------");
-            log.info("name : " + file.getOriginalFilename());
-            log.info("size : " + file.getSize());
+            log.info("name : " + file.getOriginalFilename()); //파일의 원래 이름 출력
+            log.info("size : " + file.getSize()); //파일의 원래 크기 출력
         }
     }
 }

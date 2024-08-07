@@ -1,6 +1,8 @@
 package org.scoula.config;
 
 import lombok.extern.log4j.Log4j;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,11 +18,13 @@ import java.sql.SQLException;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = {RootConfig.class})
+@ContextConfiguration(classes = {RootConfig.class}) //테스트에서 사용할 설정 클래스
 @Log4j
 class RootConfigTest {
     @Autowired
     private DataSource dataSource;
+    @Autowired
+    private SqlSessionFactory sqlSessionFactory;
 
     @Test
     @DisplayName("DataSource 연결됨.")
@@ -28,6 +32,17 @@ class RootConfigTest {
         try(Connection con = dataSource.getConnection()) {
             log.info("DataSource 준비완료");
             log.info(con);
+        }
+    }
+
+    @Test
+    public void testSqlSessionFactory() {
+        try(SqlSession session = sqlSessionFactory.openSession();
+            Connection con = session.getConnection();) {
+            log.info(session);
+            log.info(con);
+        } catch (Exception e) {
+                fail(e.getMessage());
         }
     }
 }

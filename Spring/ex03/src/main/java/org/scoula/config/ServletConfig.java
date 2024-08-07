@@ -36,6 +36,7 @@ public class ServletConfig implements WebMvcConfigurer {
         registry.viewResolver(bean);
     }
 
+    //multipart 해석을 위한 메서드.
     @Bean
     public MultipartResolver multipartResolver() {
         StandardServletMultipartResolver resolver

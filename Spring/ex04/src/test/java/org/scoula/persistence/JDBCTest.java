@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 @Log4j
 public class JDBCTest {
-    static {
+    static { // 전체에서 이 부분은 한 번만 돌리겠다.
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch(Exception e) {

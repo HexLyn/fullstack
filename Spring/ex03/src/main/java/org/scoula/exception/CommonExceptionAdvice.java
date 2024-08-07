@@ -8,15 +8,16 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
-@ControllerAdvice
+@ControllerAdvice // 해당 클래스에서 예외를 처리하겠다.
 @Log4j
 public class CommonExceptionAdvice {
+    // 모든 예외 처리.
     @ExceptionHandler(Exception.class)
     public String except(Exception ex, Model model) {
         log.error("Exception......" + ex.getMessage());
-        model.addAttribute("exception", ex);
+        model.addAttribute("exception", ex); // 예외 객체 모델에 추가해서 뷰에 전달.
         log.error(model);
-        return "error_page";
+        return "error_page"; // 뷰 이름 반환
     }
     @ExceptionHandler(NoHandlerFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)

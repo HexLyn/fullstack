@@ -48,11 +48,11 @@ public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitiali
         registration.setInitParameter("throwExceptionIfNoHandlerFound", "true");
 
         MultipartConfigElement multipartConfig = new MultipartConfigElement(
-                LOCATION,
-                MAX_FILE_SIZE,
-                MAX_REQUEST_SIZE,
-                FILE_SIZE_THRESHOLD
+                LOCATION, //업로드된 파일이 저장될 디렉터리.
+                MAX_FILE_SIZE, // 업로드 가능한 파일 하나의 최대 크기
+                MAX_REQUEST_SIZE, // 업로드 가능한 전체 파일의 최대 크기
+                FILE_SIZE_THRESHOLD // 메모리 제한, 이보다 더 작은 파일은 메모리에서만 처리.
         );
-        registration.setMultipartConfig(multipartConfig);
+        registration.setMultipartConfig(multipartConfig); //설정한 multipartconfigelement 등록.
     }
 }
