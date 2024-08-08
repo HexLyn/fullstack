@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
@@ -17,6 +18,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @PropertySource({"classpath:/application.properties"})
+@ComponentScan(basePackages = {"org.scoula.board.service"})
 @MapperScan(basePackages = {"org.scoula.board.mapper"})
 public class RootConfig {
     //application.properties 파일에서 값을 읽어와서 변수에 주입.

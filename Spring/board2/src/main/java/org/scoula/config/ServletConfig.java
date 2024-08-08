@@ -14,7 +14,7 @@ import org.springframework.web.servlet.view.JstlView;
 @EnableWebMvc
 @ComponentScan(basePackages = {"org.scoula.controller",
         "org.scoula.dynamicweb.ex03.controller",
-        "org.scoula.exception"})
+        "org.scoula.exception", "org.scoula.board.controller"})
 public class ServletConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers

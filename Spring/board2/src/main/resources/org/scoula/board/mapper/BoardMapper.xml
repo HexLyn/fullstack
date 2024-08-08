@@ -11,8 +11,28 @@
         ]]>
     </select>
 
+<!--    해당 no 컬럼과 일치하는 행을 삭제.-->
     <select id="get" resultType="BoardVO">
         select * from tbl_board where no = #{no}
     </select>
 
+    <insert id="create">
+        insert into tbl_board (title, content, writer)
+        values (#{title}, #{content}, #{writer})
+    </insert>
+
+<!--    tbl_board의 title,content, writer 컬럼을 우리가 넣어준 값으로 수정.-->
+<!--    update date는 현재 시간으로 수정.-->
+    <update id="update">
+        update tbl_board set
+            title = #{title},
+            content=#{content},
+            writer=#{writer},
+            update_date=now()
+        where no = #{no}
+    </update>
+
+    <delete id="delete">
+        delete from tbl_board where no = #{no}
+    </delete>
 </mapper>
